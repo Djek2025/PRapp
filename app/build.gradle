@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 }
 
 android {
@@ -15,6 +17,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "ONE_SIGNAL_APP_ID", '"de42e3f6-3c9d-45a4-9b5f-e387da383fdb"'
+        buildConfigField "String", "APPS_FLYER_DEV_KEY", '"6NyGPDGUPCjYhNQUeXrTPT"'
     }
 
     buildTypes {
@@ -51,6 +55,20 @@ dependencies {
 
     //Shared preferences
     implementation 'androidx.preference:preference-ktx:1.2.0'
+
+    //FB
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+    implementation 'com.google.firebase:firebase-analytics:21.0.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.6'
+
+    //OneSignal
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+
+    //AppsFlyer
+    implementation 'com.appsflyer:af-android-sdk:6.3.2'
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'

@@ -6,4 +6,7 @@
     <string name="accept">Accept</string>
     <string name="exit">Exit</string>
     <string name="check_internet_connection">Check internet connection</string>
+
+    <string name="facebook_app_id">776088580500113</string>
+    <string name="facebook_client_token">cedff5cb83eaf1efde8e93c43e310c6e</string>
 </resources>

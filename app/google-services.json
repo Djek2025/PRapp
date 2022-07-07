@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "426038929273",
+    "project_id": "prapp-93b46",
+    "storage_bucket": "prapp-93b46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426038929273:android:80b99151a128e295a571a8",
+        "android_client_info": {
+          "package_name": "com.example.prapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426038929273-126f4gubcccd8ns09h6lfje98ev5j8ln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.prapp",
+            "certificate_hash": "c092f4779945a55d936861e2bafb12307c2288aa"
+          }
+        },
+        {
+          "client_id": "426038929273-q69eoau6i33o6plfkm7of5r1rf7bvvh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvBv-b_4586fEDRzmXegmQLjnH_932-Lg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426038929273-q69eoau6i33o6plfkm7of5r1rf7bvvh1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,7 +10,7 @@ class SPCache(private val sp: SharedPreferences) {
         internal const val ARG_FIRST_LAUNCH_DEF = true
 
         internal const val ARG_LAST_PAGE = "last_page"
-        internal const val ARG_LAST_PAGE_DEF = "https://play.google.com/"
+        internal const val ARG_LAST_PAGE_DEF = "https://www.nytimes.com/"
 
     }
 
