@@ -7,7 +7,9 @@ import com.example.prapp.ui.start.StartFragment
 import com.example.prapp.ui.web.WebViewFragment
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [MainModule::class])
 interface AppComponent {
 
