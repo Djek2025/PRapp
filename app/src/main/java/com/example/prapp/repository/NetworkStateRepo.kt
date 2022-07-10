@@ -46,7 +46,7 @@ class NetworkStateRepo(
     }
 
 
-    fun hasNetworkConnection() = getCurrentNetwork() == NetworkState.Connected
+    fun hasNetworkConnection(): Boolean = getCurrentNetwork() == NetworkState.Connected
 
     private fun getCurrentNetwork(): NetworkState {
         return try {

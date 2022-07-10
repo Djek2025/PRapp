@@ -13,7 +13,7 @@ import androidx.navigation.findNavController
 import com.example.prapp.App
 import com.example.prapp.R
 import com.example.prapp.databinding.FragmentWebViewBinding
-import com.example.prapp.repository.NetworkStateRepo
+import com.example.prapp.repository.NetworkStateRepo.NetworkState.*
 import com.example.prapp.ui.BaseViewModel
 import com.example.prapp.utils.SPCache
 import javax.inject.Inject
@@ -37,14 +37,6 @@ class WebViewFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWebViewBinding.inflate(inflater)
-        binding.webView.apply {
-            settings.apply {
-                javaScriptEnabled = true
-                cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
-                domStorageEnabled = true
-            }
-            webViewClient = WebViewClient()
-        }
         return binding.root
     }
 
@@ -56,17 +48,17 @@ class WebViewFragment: Fragment() {
         lifecycleScope.launchWhenStarted {
             vm.networkState.collect{
                 when(it){
-                    is NetworkStateRepo.NetworkState.Connected -> {
+                    is Connected -> {
                         setUpWebView(savedInstanceState)
                     }
-                    is NetworkStateRepo.NetworkState.Disconnected -> {
+                    is Disconnected -> {
                         navController.navigate(R.id.action_webViewFragment_to_noInternetFragment)
                     }
                 }
             }
         }
 
-        requireActivity().onBackPressedDispatcher.addCallback{
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
             binding.webView.run {
                 if (canGoBack()){
                     goBack()
@@ -85,6 +77,12 @@ class WebViewFragment: Fragment() {
 
     private fun setUpWebView(savedInstanceState: Bundle?){
         binding.webView.apply {
+            webViewClient = WebViewClient()
+            settings.apply {
+                javaScriptEnabled = true
+                cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+                domStorageEnabled = true
+            }
             if (savedInstanceState == null) {
                 loadUrl(sp.lastPage!!)
             } else{

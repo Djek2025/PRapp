@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import com.example.prapp.App
 import com.example.prapp.R
 import com.example.prapp.databinding.FragmentNoInternetBinding
-import com.example.prapp.repository.NetworkStateRepo
+import com.example.prapp.repository.NetworkStateRepo.NetworkState.*
 import com.example.prapp.ui.BaseViewModel
 import javax.inject.Inject
 
@@ -41,10 +41,10 @@ class NoInternetFragment: Fragment() {
         lifecycleScope.launchWhenStarted {
             vm.networkState.collect{
                 when(it){
-                    is NetworkStateRepo.NetworkState.Connected -> {
+                    is Connected -> {
                         navController.navigate(R.id.action_noInternetFragment_to_webViewFragment)
                     }
-                    is NetworkStateRepo.NetworkState.Disconnected -> {
+                    is Disconnected -> {
 
                     }
                 }
